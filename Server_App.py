@@ -1,7 +1,7 @@
 import dataset
 
-db = dataset.connect('sqlite:///database.db')
-table = db['emp_info']
+db = dataset.connect('sqlite:///database.db') # setup SQLite database
+table = db['emp_info'] # setup table in database
 
 user_name = "prakhar"
 pass_word = "anonymous"
@@ -21,7 +21,7 @@ def main_program():
     print(" ")
     print("-----------------")
 
-    if enter_username == user_name and enter_password == pass_word:
+    if enter_username == user_name and enter_password == pass_word: # successful login
 
         print(" ")
         print("[+] Login successful !")
@@ -29,17 +29,17 @@ def main_program():
         print(" ")
         print(" ")
 
-        def enter_employee_details():
+        def enter_employee_details(): # enter employee details
 
             emp_id = input("[+]Enter employee ID : ")
             name_case = input("[+] Enter employee name : ")
             age = input("[+] Enter employee age : ")
             gender_case = input("[+] Enter employee gender : ")
 
-            name = name_case.lower()
-            gender = gender_case.lower()
+            name = name_case.lower() # saving it as lower() to make 
+            gender = gender_case.lower() # it easy to search in database
 
-            table.insert(dict(Employee_ID=emp_id, Name=name, Age=age, Gender=gender))
+            table.insert(dict(Employee_ID=emp_id, Name=name, Age=age, Gender=gender)) # saving to table 'emp_info' in database
 
             print(" ")
             print("[+] Saved to database !")
@@ -47,12 +47,13 @@ def main_program():
             print(" ")
 
             while True:
-                enter_employee_details()
+                enter_employee_details() # for continous input
 
         enter_employee_details()
 
     else:
 
+        # null or incorrect input
         print(" ")
         print("[-] Incorrect username or password !")
         print("------------------------------------")
